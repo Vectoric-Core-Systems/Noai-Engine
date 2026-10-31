@@ -2,42 +2,50 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Noai_Engine.MainPage">
+    <ScrollView>
 
-    <VerticalStackLayout Padding="30" Spacing="20">
+        <VerticalStackLayout 
+            Padding="30" 
+            Spacing="20">
 
-        <Label
-            Text="Noai Engine"
-            Style="{StaticResource Headline}"
-            SemanticProperties.HeadingLevel="Level1" />
+            <Label
+                Text="Noai Engine"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
 
-        <Label
-            Text="Projects"
-            FontSize="20"
-            FontAttributes="Bold" />
+            <Label
+                Text="Projects"
+                FontSize="20"
+                FontAttributes="Bold" />
 
-        <CollectionView
-            ItemsSource="{Binding Projects}"
-            SelectionMode="None">
+            <CollectionView
+                ItemsSource="{Binding Projects}"
+                SelectionMode="None">
 
-            <CollectionView.EmptyView>
-                <Label
-                    Text="No projects found in Documents\Noai Projects."
-                    HorizontalOptions="Center"
-                    Margin="0,20" />
-            </CollectionView.EmptyView>
+                <CollectionView.EmptyView>
+                    <Label
+                        Text="No projects found in Documents\Noai Projects."
+                        HorizontalOptions="Center"
+                        Margin="0,20" />
+                </CollectionView.EmptyView>
 
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Button
-                        Text="{Binding ProjectName}"
-                        CommandParameter="{Binding .}"
-                        Clicked="OnProjectSelected"
-                        Margin="0,5"
-                        HorizontalOptions="Fill" />
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Button
+                            Text="{Binding ProjectName}"
+                            CommandParameter="{Binding .}"
+                            Clicked="OnProjectSelected"
+                            Margin="0,5"
+                            HorizontalOptions="Fill" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
 
-        </CollectionView>
+            </CollectionView>
 
-    </VerticalStackLayout>
+            <Button
+                Text="Create New Project"
+                Clicked="OnCreateNewProjectClicked"
+                HorizontalOptions="Fill" />
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 
 // Engine Namespaces
-using Core.Startup; 
+using Core.Startup;
 
 namespace Noai_Engine
 {
@@ -42,6 +42,12 @@ namespace Noai_Engine
                     FilePath = path
                 });
             }
+        }
+
+        private void OnCreateNewProjectClicked(object sender, EventArgs e)
+        {
+            // Navigate to the new project creation page
+            Navigation.PushAsync(new NewProject());
         }
 
         private async void OnProjectSelected(object sender, EventArgs e)
