@@ -10,7 +10,7 @@ namespace Noai_Engine
 
     public partial class MainPage : ContentPage
     {
-        // 2. The property that your XAML will look for
+        // 2. XML file property lookup
         public ObservableCollection<ProjectModel> Projects { get; set; } = new();
 
         public MainPage()
@@ -25,7 +25,7 @@ namespace Noai_Engine
 
         private void LoadProjects()
         {
-            // 4. Instantiate the class from your Core.Startup namespace
+            // 4. Instantiate the class from Core.Startup 
             var startup = new CoreStartup();
 
             // 5. Run the method to retrieve the file path strings
@@ -33,7 +33,7 @@ namespace Noai_Engine
 
             Projects.Clear();
 
-            // 6. Clean up paths into distinct display names for your buttons
+            // 6. Clean up paths into distinct display names
             foreach (string path in paths)
             {
                 Projects.Add(new ProjectModel
@@ -54,7 +54,7 @@ namespace Noai_Engine
         {
             if (sender is Button button && button.CommandParameter is ProjectModel selectedProject)
             {
-                // You now have the exact file path to load into your engine
+                // file path to load into your engine
                 string projectToLoad = selectedProject.FilePath;
 
                 await DisplayAlert("Loading", $"Opening: {selectedProject.ProjectName}", "OK");
