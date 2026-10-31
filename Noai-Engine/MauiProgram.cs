@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
+
 namespace Noai_Engine
 {
     public static class MauiProgram

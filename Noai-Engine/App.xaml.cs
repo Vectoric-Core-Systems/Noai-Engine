@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Core.Startup;
 
 namespace Noai_Engine
 {
@@ -7,6 +8,8 @@ namespace Noai_Engine
         public App()
         {
             InitializeComponent();
+
+            new CoreStartup().ProjectFolderInit();
         }
 
         protected override Window CreateWindow(IActivationState? activationState)
